@@ -35,7 +35,8 @@ provider "databricks" {
 //   azure_tenant_id             = var.tenant_id
 }
 
-resource "databricks_scim_user" "my-user" {
-  user_name     = "test-user@databricks.com"
-  display_name  = "Test User"
+resource "databricks_scim_user" "admin" {
+  user_name    = "me@example.com"
+  display_name = "Example user"
+  set_admin    = true
 }
