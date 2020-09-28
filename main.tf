@@ -32,7 +32,7 @@ provider "databricks" {
 }
 
 resource "databricks_scim_user" "admin" {
-  user_name    = "admin"
+  user_name    = "admin@example.com"
   display_name = "Admin user"
   set_admin    = true
   default_roles = []
