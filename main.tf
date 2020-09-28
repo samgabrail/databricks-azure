@@ -1,18 +1,23 @@
-// terraform {
-//   required_providers {
-//     databricks = {
-//       source = "databrickslabs/databricks"
-//       version = "0.2.5"
-//     }
-//     azurerm = {
-//       version = "2.29.0"
-//     }
-//   }
-// }
+terraform {
+  required_providers {
+    databricks = {
+      source = "databrickslabs/databricks"
+      version = "0.2.5"
+    }
+    azurerm = {
+      version = "2.29.0"
+    }
+  }
+}
 
-// provider "azurerm" {
-//     features {}
-// }
+provider "azurerm" {
+    features {}
+}
+
+provider "databricks" {
+  azure_workspace_resource_id = azurerm_databricks_workspace.myworkspace.id
+}
+
 
 // resource "azurerm_resource_group" "myresourcegroup" {
 //   name     = "${var.prefix}-myresourcegroup"
@@ -24,10 +29,6 @@
 //   name                          = "${var.prefix}-workspace"
 //   resource_group_name           = azurerm_resource_group.myresourcegroup.name
 //   sku                           = "trial"
-// }
-
-// provider "databricks" {
-//   azure_workspace_resource_id = azurerm_databricks_workspace.myworkspace.id
 // }
 
 // resource "databricks_scim_user" "admin" {
