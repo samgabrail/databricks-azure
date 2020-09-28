@@ -66,3 +66,26 @@ resource "databricks_notebook" "notebook" {
   language = "PYTHON"
   format = "SOURCE"
 }
+
+resource "databricks_job" "myjob" {
+    name = "Featurization"
+    timeout_seconds = 3600
+    max_retries = 1
+    max_concurrent_runs = 1
+
+    existing_cluster_id = databricks_cluster.shared_autoscaling.id
+
+    notebook_task {
+        notebook_path = "/Production/MakeFeatures"
+    }
+
+    library {
+        pypi {
+            package = "fbprophet==0.6"
+        }
+    }
+
+    email_notifications {
+        no_alert_for_skipped_runs = true
+    }
+}
