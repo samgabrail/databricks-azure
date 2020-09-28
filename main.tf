@@ -46,7 +46,7 @@ resource "databricks_cluster" "shared_autoscaling" {
   cluster_name            = "${var.prefix}-Autoscaling-Cluster"
   spark_version           = "7.3.x-scala2.12"
   node_type_id            = "Standard_DS3_v2"
-  autotermination_minutes = 15
+  autotermination_minutes = 90
   autoscale {
     min_workers = 1
     max_workers = 4
@@ -54,6 +54,9 @@ resource "databricks_cluster" "shared_autoscaling" {
   library {
   pypi {
     package = "fbprophet==0.6"
+    package = "opencv-contrib-python-headless==4.4.0.42"
+    package = "imutils==0.5.3"
+    package = "scikit-learn==0.23.2"
     // repo can also be specified here
     }
   }
@@ -61,7 +64,7 @@ resource "databricks_cluster" "shared_autoscaling" {
 
 resource "databricks_notebook" "notebook" {
   content = base64encode("# Welcome to your Python notebook")
-  path = "/mynotebook"
+  path = "${var.prefix}-notebook"
   overwrite = false
   mkdirs = true
   language = "PYTHON"
