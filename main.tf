@@ -52,11 +52,11 @@ resource "databricks_cluster" "shared_autoscaling" {
     max_workers = 4
   }
   library {
-  pypi {
-    package = "scikit-learn==0.23.2"
-    // repo can also be specified here
+    pypi {
+        package = "scikit-learn==0.23.2"
+        // repo can also be specified here
+        }
     }
-  }
 }
 
 resource "databricks_notebook" "notebook" {
