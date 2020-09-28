@@ -15,6 +15,7 @@ resource "azurerm_databricks_workspace" "myworkspace" {
 }
 
 provider "databricks" {
+  version = "=0.2.5"
   azure_workspace_resource_id = azurerm_databricks_workspace.myworkspace.id
 //   azure_client_id             = var.client_id
 //   azure_client_secret         = var.client_secret
