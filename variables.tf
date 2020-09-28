@@ -4,6 +4,16 @@ variable "prefix" {
 }
 
 variable "location" {
-  description = "The region where the virtual network is created."
+  description = "The region"
   default     = "centralus"
+}
+
+variable "spark_version" {
+  description = "Spark Runtime Version for databricks clusters"
+  default     = "7.3.x-scala2.12"
+}
+
+variable "node_type_id" {
+  description = "Type of worker nodes for databricks clusters"
+  default     = "Standard_DS3_v2"
 }
