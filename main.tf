@@ -53,9 +53,6 @@ resource "databricks_cluster" "shared_autoscaling" {
   }
   library {
   pypi {
-    package = "fbprophet==0.6"
-    package = "opencv-contrib-python-headless==4.4.0.42"
-    package = "imutils==0.5.3"
     package = "scikit-learn==0.23.2"
     // repo can also be specified here
     }
