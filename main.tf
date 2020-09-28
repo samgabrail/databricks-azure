@@ -53,6 +53,9 @@ resource "databricks_cluster" "shared_autoscaling" {
         // repo can also be specified here
         }
     }
+  custom_tags = {
+    Department = "Engineering"
+  }
 }
 
 resource "databricks_notebook" "notebook" {
