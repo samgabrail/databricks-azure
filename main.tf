@@ -39,4 +39,5 @@ resource "databricks_scim_user" "admin" {
   user_name    = "me@example.com"
   display_name = "Example user"
   set_admin    = true
+  default_roles = []
 }
