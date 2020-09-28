@@ -52,10 +52,13 @@ resource "databricks_cluster" "shared_autoscaling" {
         package = "scikit-learn==0.23.2"
         // repo can also be specified here
         }
+
+    }
+  library {
     pypi {
         package = "fbprophet==0.6"
         }
-    }
+  }
   custom_tags = {
     Department = "Engineering"
   }
