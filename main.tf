@@ -63,7 +63,7 @@ resource "databricks_cluster" "shared_autoscaling" {
 
 resource "databricks_notebook" "notebook" {
   content = base64encode("# Welcome to your Python notebook")
-  path = "/${var.prefix}-notebook"
+  path = var.notebook_path
   overwrite = false
   mkdirs = true
   language = "PYTHON"
@@ -79,7 +79,7 @@ resource "databricks_job" "myjob" {
     existing_cluster_id = databricks_cluster.shared_autoscaling.id
 
     notebook_task {
-        notebook_path = "/Production/MakeFeatures"
+        notebook_path = var.notebook_path
     }
 
     library {
