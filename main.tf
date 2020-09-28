@@ -1,5 +1,17 @@
+terraform {
+  required_providers {
+    databricks = {
+      source = "databrickslabs/databricks"
+      version = "0.2.5"
+    }
+    azurerm = {
+      version = "2.29.0"
+    }
+  }
+}
+
 provider "azurerm" {
-    version = "=2.29.0"
+    // version = "=2.29.0"
 }
 
 resource "azurerm_resource_group" "myresourcegroup" {
@@ -15,7 +27,7 @@ resource "azurerm_databricks_workspace" "myworkspace" {
 }
 
 provider "databricks" {
-  version = "=0.2.5"
+//   version = "=0.2.5"
   azure_workspace_resource_id = azurerm_databricks_workspace.myworkspace.id
 //   azure_client_id             = var.client_id
 //   azure_client_secret         = var.client_secret
