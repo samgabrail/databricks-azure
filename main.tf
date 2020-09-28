@@ -64,7 +64,7 @@ resource "databricks_cluster" "shared_autoscaling" {
 
 resource "databricks_notebook" "notebook" {
   content = base64encode("# Welcome to your Python notebook")
-  path = "${var.prefix}-notebook"
+  path = "/${var.prefix}-notebook"
   overwrite = false
   mkdirs = true
   language = "PYTHON"
