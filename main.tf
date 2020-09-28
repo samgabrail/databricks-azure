@@ -6,6 +6,7 @@ terraform {
     }
     azurerm = {
       version = "2.29.0"
+      features {}
     }
   }
 }
@@ -20,9 +21,9 @@ resource "azurerm_resource_group" "myresourcegroup" {
 }
 
 resource "azurerm_databricks_workspace" "myworkspace" {
-  location                      = "centralus"
+  location                      = azurerm_resource_group.myresourcegroup.location
   name                          = "my-workspace-name"
-  resource_group_name           = azurerm_resource_group.myresourcegroup.location
+  resource_group_name           = azurerm_resource_group.myresourcegroup.name
   sku                           = "trial"
 }
 
