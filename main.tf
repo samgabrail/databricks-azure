@@ -77,7 +77,6 @@ resource "databricks_job" "myjob" {
     timeout_seconds = 3600
     max_retries = 1
     max_concurrent_runs = 1
-
     existing_cluster_id = databricks_cluster.shared_autoscaling.id
 
     notebook_task {
