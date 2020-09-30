@@ -37,6 +37,7 @@ resource "databricks_scim_user" "admin" {
   default_roles = []
 }
 
+
 resource "databricks_cluster" "shared_autoscaling" {
   cluster_name            = "${var.prefix}-Autoscaling-Cluster"
   spark_version           = var.spark_version
