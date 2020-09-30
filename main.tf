@@ -44,8 +44,8 @@ resource "databricks_cluster" "shared_autoscaling" {
   node_type_id            = var.node_type_id
   autotermination_minutes = 90
   autoscale {
-    min_workers = 1
-    max_workers = 4
+    min_workers = var.min_workers
+    max_workers = var.max_workers
   }
   library {
     pypi {

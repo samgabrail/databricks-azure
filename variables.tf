@@ -22,3 +22,13 @@ variable "notebook_path" {
   description = "Path to a notebook"
   default     = "/python_notebook"
 }
+
+variable "min_workers" {
+  description = "Minimum workers in a cluster"
+  default     = 1
+}
+
+variable "max_workers" {
+  description = "Maximum workers in a cluster"
+  default     = 4
+}
