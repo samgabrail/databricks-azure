@@ -11,7 +11,7 @@ param max_workers default 5
 # Set allowed node type IDs
 # We include "null" since node_type_id is optional
 # (since instance_pool_id can be used instead)
-param allowed_node_type_ids default ["Standard_A1", "Standard_A2", "Standard_D1_v2", "Standard_D2_v2", "null"]
+param allowed_node_type_ids default ["Standard_DS3_v2", "Standard_DS4_v2", "null"]
 
 # Get all Databricks clusters
 allClusters = plan.find_resources("databricks_cluster")
