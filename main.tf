@@ -18,6 +18,7 @@ provider "databricks" {
   azure_workspace_resource_id = azurerm_databricks_workspace.myworkspace.id
 }
 
+
 resource "azurerm_resource_group" "myresourcegroup" {
   name     = "${var.prefix}-myresourcegroup"
   location = var.location
